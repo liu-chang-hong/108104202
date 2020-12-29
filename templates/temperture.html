@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+小黑人溫度統計圖
+{% endblock %}
+{% block titlemessage %}
+{% endblock %}
+{% block content %}
+<button><a href="/temperture/">小琉球</a></button>
+<button><a href="/temperture1/">蘭嶼</a></button>
+<button><a href="/temperture2/">綠島</a></button>
+<button><a href="/temperture3/">金門</a></button>
+<button><a href="/temperture4/">馬祖</a></button>
+<center>
+<table width=800>
+  <tr><td>
+<canvas id="myChart" width="400" height="200"></canvas>
+</tr></td>
+</table>
+</center>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [
+        '1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'
+        ],        
+        datasets: [{
+            label: '小琉球每月溫度統計圖',
+            data:[
+            24,24,25,22,27,30,29,30,30,29,26,23
+        ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+  本網頁被瀏覽了{{ hit_count }}次
+{% endblock %}

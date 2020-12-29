@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}
+小黑人玩樂族群統計圖
+{% endblock %}
+{% block titlemessage %}
+{% endblock %}
+{% block content %}
+<button><a href="/temperture10/">小琉球</a></button>
+<button><a href="/temperture11/">蘭嶼</a></button>
+<button><a href="/temperture12/">綠島</a></button>
+<button><a href="/temperture13/">金門</a></button>
+<button><a href="/temperture14/">馬祖</a></button>
+<center>
+<table width=800>
+  <tr><td>
+<canvas id="myPieChart" width="400" height="200"></canvas>
+</tr></td>
+</table>
+</center>
+<script>
+var ctx = document.getElementById('myPieChart').getContext('2d');
+var myPieChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: [
+        '小琉球學生','小琉球情侶','小琉球家人','小琉球旅行團'
+        ],        
+        datasets: [{
+            label: '小琉球遊客量統計圖',
+            data:[
+            20,20,40,20
+        ],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+  本網頁被瀏覽了{{ hit_count }}次
+{% endblock %}
